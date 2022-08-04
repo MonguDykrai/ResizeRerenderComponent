@@ -30,8 +30,8 @@ function useResize(autoResize = true, wait = 300) {
 function ThrottleButton({ autoResize, wait }) {
   const { visible } = useResize(autoResize, wait);
   console.log({ visible });
-  if (visible === false) return;
-  // return <Button></Button>;
+  // if (visible === false) return;
+  return <Button></Button>;
   return (
     <Table
       style={{
