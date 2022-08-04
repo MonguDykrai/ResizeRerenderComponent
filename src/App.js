@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import _ from 'lodash';
 import './style.css';
+import { Table } from 'antd';
+import 'antd/dist/antd.css';
 
 function Button() {
   console.log(2);
@@ -29,7 +31,32 @@ function ThrottleButton({ autoResize, wait }) {
   const { visible } = useResize(autoResize, wait);
   console.log({ visible });
   if (visible === false) return;
-  return <Button></Button>;
+  // return <Button></Button>;
+  return (
+    <Table
+      style={{
+        width: window.innerWidth * 0.7,
+        // width: window.innerWidth * 0.3,
+      }}
+      rowKey="name"
+      columns={[
+        {
+          dataIndex: 'name',
+          key: 'name',
+          title: 'name',
+        },
+        {
+          dataIndex: 'gender',
+          key: 'gender',
+          title: 'gender',
+        },
+      ]}
+      dataSource={[
+        { name: 'jack', gender: 'male' },
+        { name: 'rose', gender: 'female' },
+      ]}
+    />
+  );
 }
 
 export default function App() {
